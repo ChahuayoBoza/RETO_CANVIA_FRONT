@@ -1,0 +1,15 @@
+.app-content {
+  max-height: 140px;
+  min-height: 140px;
+  overflow-y: scroll;
+}
+
+.app-content::-webkit-scrollbar {
+  width: 7px;
+}
+  
+.app-content::-webkit-scrollbar-thumb {
+  background-color: #e5f1ff !important;
+  border: 1px solid #8B5Cf6;
+  border-radius: 50px;
+}

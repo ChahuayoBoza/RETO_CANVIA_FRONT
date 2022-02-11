@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="px-4 pt-1 flex justify-end">
+  <button class="bg-white text-purple-600 border border-purple-600 m-1 py-1 px-2 text-xs rounded rounded-full h-6 w-6 flex items-center justify-center hover:bg-purple-600 hover:text-white" title="Nuevo" (click)="openModalNuevo()">
+    <fa-icon class="flex" [icon]="faPlus"></fa-icon>
+  </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 pt-1">
+  <app-card *ngFor="let item of lista" [especialidad]="item" (eventEdit)="openModalEditar($event)" (eventBorrar)="openModalBorrar($event)"></app-card>
+</div>
+<app-modal-nuevo *ngIf="verModalNuevo" (cerrarModal)="closeModalNuevo()" (guardar)="onSave($event)"></app-modal-nuevo>
+<app-modal-editar *ngIf="verModalEditar" (cerrarModal)="closeModalEditar()" [especialidad]="especialiadEdit" (guardar)="onUpdate($event)"></app-modal-editar>
+<app-modal-delete *ngIf="verModalBorrar" (cerrarModal)="closeModalBorrar()" [especialidad]="especialiadEdit" (borrar)="onDelete($event)"></app-modal-delete>
